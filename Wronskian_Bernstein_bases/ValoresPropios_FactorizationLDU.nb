@@ -1,0 +1,163 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      4977,        155]
+NotebookOptionsPosition[      4682,        142]
+NotebookOutlinePosition[      5023,        157]
+CellTagsIndexPosition[      4980,        154]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+    "Import", "[", 
+     "\"\</Users/beatrizrubioserrano/Desktop/work/Wronskianos/VPLDUB.csv\>\"",
+      "]"}], " ", "//", " ", "TableForm"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+    "Import", "[", 
+     "\"\</Users/beatrizrubioserrano/Desktop/work/Wronskianos/VPLDUM.csv\>\"",
+      "]"}], " ", "//", " ", "TableForm"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+    "Import", "[", 
+     "\"\</Users/beatrizrubioserrano/Desktop/work/Wronskianos/VSLUDB.csv\>\"",
+      "]"}], " ", "//", " ", "TableForm"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+    "Import", "[", 
+     "\"\</Users/beatrizrubioserrano/Desktop/work/Wronskianos/VSLDUM.csv\>\"",
+      "]"}], " ", "//", " ", "TableForm"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"Clear", "[", "x", "]"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"A", "=", 
+     RowBox[{"N", "[", 
+      RowBox[{
+       RowBox[{"Table", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"Binomial", "[", 
+           RowBox[{"n", ",", 
+            RowBox[{"j", "-", "1"}]}], "]"}], "*", 
+          RowBox[{"D", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{
+              RowBox[{"(", "x", ")"}], "^", 
+              RowBox[{"(", 
+               RowBox[{"j", "-", "1"}], ")"}]}], "*", 
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{"1", "-", "x"}], ")"}], "^", 
+              RowBox[{"(", 
+               RowBox[{"n", "+", "1", "-", "j"}], ")"}]}]}], ",", 
+            RowBox[{"{", 
+             RowBox[{"x", ",", 
+              RowBox[{"i", "-", "1"}]}], "}"}]}], "]"}]}], ",", 
+         RowBox[{"{", 
+          RowBox[{"i", ",", "1", ",", 
+           RowBox[{"n", "+", "1"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"j", ",", "1", ",", 
+           RowBox[{"n", "+", "1"}]}], "}"}]}], "]"}], ",", "100"}], "]"}]}], 
+    ";"}], "\n", 
+   RowBox[{
+    RowBox[{"x", "=", "0.1"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"E", "=", 
+    RowBox[{"Sort", "[", 
+     RowBox[{
+      RowBox[{"Eigenvalues", "[", "A", "]"}], ",", "Less"}], "]"}]}], "\n", 
+   RowBox[{"SG", "=", 
+    RowBox[{"Sort", "[", 
+     RowBox[{
+      RowBox[{"Sqrt", "[", 
+       RowBox[{"Eigenvalues", "[", 
+        RowBox[{
+         RowBox[{"Transpose", "[", "A", "]"}], ".", "A"}], "]"}], "]"}], ",", 
+      "Less"}], "]"}]}], "\n", "\n", "\n", 
+   RowBox[{"VPErrorM", "=", 
+    RowBox[{
+     RowBox[{"Abs", "[", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"VPM", "[", 
+         RowBox[{"[", "1", "]"}], "]"}], "-", 
+        RowBox[{"E", "[", 
+         RowBox[{"[", "1", "]"}], "]"}]}], ")"}], "]"}], "/", 
+     RowBox[{"Abs", "[", 
+      RowBox[{"E", "[", 
+       RowBox[{"[", "1", "]"}], "]"}], "]"}]}]}], "\n", 
+   RowBox[{"VPErrorB", "=", 
+    RowBox[{
+     RowBox[{"Abs", "[", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"VPB", "[", 
+         RowBox[{"[", "1", "]"}], "]"}], "-", 
+        RowBox[{"E", "[", 
+         RowBox[{"[", "1", "]"}], "]"}]}], ")"}], "]"}], "/", 
+     RowBox[{"Abs", "[", 
+      RowBox[{"E", "[", 
+       RowBox[{"[", "1", "]"}], "]"}], "]"}]}]}], "\n", 
+   RowBox[{"VSErrorM", "=", 
+    RowBox[{
+     RowBox[{"Abs", "[", 
+      RowBox[{
+       RowBox[{"VSM", "[", 
+        RowBox[{"[", "1", "]"}], "]"}], "-", 
+       RowBox[{"SG", "[", 
+        RowBox[{"[", "1", "]"}], "]"}]}], "]"}], "/", 
+     RowBox[{"Abs", "[", 
+      RowBox[{"SG", "[", 
+       RowBox[{"[", "1", "]"}], "]"}], "]"}]}]}], "\[IndentingNewLine]", 
+   RowBox[{"VSErrorB", "=", 
+    RowBox[{
+     RowBox[{"Abs", "[", 
+      RowBox[{
+       RowBox[{"VSB", "[", 
+        RowBox[{"[", "1", "]"}], "]"}], "-", 
+       RowBox[{"SG", "[", 
+        RowBox[{"[", "1", "]"}], "]"}]}], "]"}], "/", 
+     RowBox[{"Abs", "[", 
+      RowBox[{"SG", "[", 
+       RowBox[{"[", "1", "]"}], "]"}], "]"}]}]}]}]}]], "Input",
+ CellChangeTimes->{
+  3.7911200482138968`*^9, 3.7911201460488243`*^9, {3.7911202704839573`*^9, 
+   3.7911204593958473`*^9}},ExpressionUUID->"8476d212-7f72-41b8-99f0-\
+58c1bd5d477d"]
+},
+WindowSize->{Full, Full},
+WindowMargins->{{316, Automatic}, {Automatic, 50}},
+FrontEndVersion->"12.0 para Mac OS X x86 (64-bit) (April 8, 2019)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 4120, 120, 545, "Input",ExpressionUUID->"8476d212-7f72-41b8-99f0-58c1bd5d477d"]
+}
+]
+*)
+
