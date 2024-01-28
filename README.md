@@ -5,6 +5,6 @@ https://doi.org/10.1002/nla.2423
 
 In [Wronskian_Bernstein_bases](https://github.com/BeatrizRubio/Wronskian_Bersntein_bases/tree/main/Gram_Bernstein) the bidiagonal decomposition of Bernstein bases of polynomials and other related bases such as the Bernstein basis of negative degree or the negative binomial basis are provided. Experiment results obtained with the functions available in http://math.mit.edu/~plamen/software/TNTool.html are presented. We also include the relative errors obtained in Mathematica. 
 
-![paper_banner](paper_banner.png)
+![paper_banner](banner.png)
 
 The implementation uses Matlab 2021b and Wolfram Mathematica. 
